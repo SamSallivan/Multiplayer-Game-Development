@@ -97,7 +97,6 @@ public class TwoDController : MonoBehaviour
     private void OnEnable()
     {
         _playerInput.enabled = true;
-        _playerInput.actions.FindAction("Fire").performed += Fire_performed;
         _playerInput.actions.FindAction("Jump").performed += Jump_performed;
         _playerInput.actions.FindAction("Jump").canceled += Jump_canceled;
         _playerInput.actions.FindAction("Dash").performed += Dash_performed;
@@ -106,7 +105,6 @@ public class TwoDController : MonoBehaviour
     private void OnDisable()
     {
         _playerInput.enabled = false;
-        _playerInput.actions.FindAction("Fire").performed -= Fire_performed;
         _playerInput.actions.FindAction("Jump").performed -= Jump_performed;
         _playerInput.actions.FindAction("Jump").canceled -= Jump_canceled;
         _playerInput.actions.FindAction("Dash").performed -= Dash_performed;
@@ -146,12 +144,13 @@ public class TwoDController : MonoBehaviour
     
     public IEnumerator Kill()
     {
-        _isDead = true;
-        canMove = false;
-        playerVisual.SetActive(false);
-        /*Time.timeScale = 0.1f;
-        yield return new WaitForSeconds(0.05f);
-        Time.timeScale = 1f;*/
+        if (!_isDead)
+        {
+            _isDead = true;
+            canMove = false;
+            playerVisual.SetActive(false);
+            score -= 1;
+        }
         yield return null;
     }
     
