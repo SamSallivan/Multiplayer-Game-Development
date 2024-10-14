@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Week 2/Week 2.unity
     guid: 475076ea33cb33e4dab046867ee522cb
+  - enabled: 1
+    path: Assets/Week 6/Week 6.unity
+    guid: 72f1720c140bd4d4cbe7480d4be87802
+  - enabled: 1
+    path: Assets/Week 6/Platforms.unity
+    guid: 26ff6a5a135fe264aae495c1b7d7bdd8
   m_configObjects: {}
